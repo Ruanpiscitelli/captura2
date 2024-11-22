@@ -14,9 +14,7 @@ COPY tailwind.config.ts ./
 # Instala as dependências
 RUN npm install
 
-# Copia o código-fonte
-COPY src ./src
-COPY public ./public
+# Copia apenas as pastas que existem
 COPY components ./components
 COPY app ./app
 COPY lib ./lib
@@ -32,7 +30,6 @@ WORKDIR /app
 # Copia arquivos necessários
 COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/next.config.js ./
-COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
 
