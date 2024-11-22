@@ -20,7 +20,6 @@ COPY public ./public
 COPY components ./components
 COPY app ./app
 COPY lib ./lib
-COPY styles ./styles
 
 # Build
 RUN npm run build
@@ -43,5 +42,4 @@ ENV NEXT_TELEMETRY_DISABLED=1
 
 EXPOSE 3000
 
-# Importante: Para Next.js, use npm start em vez de serve
 CMD ["npm", "start"]
